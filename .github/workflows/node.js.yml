@@ -9,7 +9,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: {node-version: '20'}
+      
+      # 🛡️ လက်နက်တပ်ဆင်ခြင်း (Missing Modules အားလုံးကို တစ်ခါတည်း သွင်းမယ်)
       - run: npm install @octokit/rest firebase-admin axios @supabase/supabase-js pg
+
+      # 🛰️ စစ်ဆင်ရေးစတင်ခြင်း
       - run: node cluster_sync.js
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
