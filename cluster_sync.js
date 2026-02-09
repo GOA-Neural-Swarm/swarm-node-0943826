@@ -45,7 +45,7 @@ async function run() {
         const offset = nodeIndex * 200; 
 
         // ၂။ Supabase မှ ဒေတာဆွဲထုတ်ခြင်း
-        const { data: neurons, error } = await supabase.table('neurons').select('*').range(offset, offset + 199);
+        const { data: neurons, error } = await supabase.from('neurons').select('*').range(offset, offset + 199);
         
         if (neurons && neurons.length > 0) {
             // ဒေတာတွေကို Format လုပ်မယ် (Neon Table Structure နဲ့ ကိုက်အောင်)
